@@ -2,13 +2,21 @@
     height: 100%;
 }
 
+/* module list outline */
 .wbdv-editor-left-pane {
     height: 100%;
-    background-color: #141516;
+    background-color: #ffffff;
+}
+
+.wbdv-editor-topics {
+    height: 100%;
+    background-color: #6e6e6e;
+    padding-top: 5px;
 }
 
 .wbdv-editor-content {
-    background-color: #141516;
+    /*#height: 100%;*/
+    background-color: #b8babb;
     width: 80%;
     padding-top: 5px;
 }
@@ -30,10 +38,10 @@
 }
 
 .wbdv-editor-nav-pills .nav-link .disabled{
-    color: #474747;
+    color: #6e6e6e;
 }
 .wbdv-editor-nav-pills > .nav-link > .disabled:hover{
-    color: #474747;
+    color: #6e6e6e;
 }
 
 .wbdv-editor-nav-pills .nav-link{
@@ -42,23 +50,23 @@
 }
 
 .wbdv-editor-nav-pills .nav-item:hover {
-    background-color: #18191A;
+    background-color: #6e6e6e;
 }
 
 .disabled {
-    background: #474747;
-    color: #5a5858 ;
+    background: #6e6e6e;
+    color: #6e6e6e ;
 }
 
 .list-group-item {
-    background-color: #27292b !important;
-    color: white;
+    background-color: #6e6e6e !important;
+    color: #ffffff;
     font-weight: lighter;
     margin-top: 5%;
 }
 
 .navbar-custom {
-    background-color: #1b1c1d;
+    background-color: #646464;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
@@ -71,7 +79,7 @@
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link{
-    color: #ffffff;
+    color: #757575;
 }
 
 .navbar-custom .nav-item:hover .nav-link{
@@ -80,7 +88,7 @@
 
 .navbar-custom .nav-link.active {
     background-color: #0077ff;
-    color: white;
+    color: #757575;
 }
 
 .navbar .navbar-custom {
@@ -88,16 +96,16 @@
 }
 
 .navbar-custom .nav-item:hover {
-    background-color: #1f2122;
+    background-color: #464646;
 }
 
 a .wbdv-editor-nav-pills{
-    color: white;
+    color: #757575;
 }
 
 .wbdv-editor-nav-pills {
     margin-top: 1.0rem;
-    background-color: #1f2122;
+    background-color: #464646;
 }
 
 .list-group-item {

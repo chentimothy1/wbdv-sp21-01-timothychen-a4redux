@@ -77,7 +77,7 @@ class CourseManager extends React.Component {
     onCourseChange = (event) => {
         this.setState({
           tempCourse: {
-            owner: "default",
+            owner: "Unknown",
             lastModified: "Never",
             title: event.target.value,
           }

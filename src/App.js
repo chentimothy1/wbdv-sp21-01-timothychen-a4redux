@@ -4,11 +4,8 @@ import CourseEditor from "./components/course-editor/course-editor";
 import Home from "./components/home";
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MainNavbar from './components/main-navbar';
-
 
 function App() {
-
 
     return (
         <BrowserRouter>
@@ -29,7 +26,6 @@ function App() {
             </div>
         </BrowserRouter>
     );
-
 }
 
 export default App;
