@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import CourseManager from "./components/course-manager/course-manager";
+import CourseEditor from "./components/course-editor/course-editor";
+import Home from "./components/home";
+import { BrowserRouter, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MainNavbar from './components/main-navbar';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+    return (
+        <BrowserRouter>
+            <div className="container-fluid">
+                <Route path="/" exact={true}  component={Home}/>
+                <Route path="/courses" component={CourseManager}/>
+                {/*<Route path="/courses/editor" component={CourseEditor}/>*/}
+
+                <Route path={[
+                    "/courses/:layout/edit/:courseId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId"
+                ]}
+                       exact={true}
+                       render={(props) => <CourseEditor {...props}/>}/>
+
+            </div>
+        </BrowserRouter>
+    );
+
 }
 
 export default App;
