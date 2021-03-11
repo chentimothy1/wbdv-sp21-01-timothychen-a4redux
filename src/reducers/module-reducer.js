@@ -4,8 +4,8 @@ const initialState = {
     dfgdfgdfg: 345345
 }
 
-const moduleReducer = (state= initialState, action) => {
-    switch (action.type){
+const moduleReducer = (state = initialState, action) => {
+    switch (action.type) {
         case "CREATE_MODULE":
             return {
                 ...state,
@@ -18,10 +18,10 @@ const moduleReducer = (state= initialState, action) => {
             return {
                 ...state,
                 modules: state.modules.filter(module => {
-                    if(module._id !== action.moduleToDelete._id){
+                    if (module._id !== action.moduleToDelete._id) {
                         return true
                     }
-                    else{
+                    else {
                         return false
                     }
                 })
@@ -30,7 +30,7 @@ const moduleReducer = (state= initialState, action) => {
             return {
                 ...state,
                 modules: state.modules.map(module => {
-                    if(module._id === action.updateModule._id){
+                    if (module._id === action.updateModule._id) {
                         return action.updateModule
                     }
                     else {

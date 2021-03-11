@@ -5,7 +5,7 @@ const initialState = {
 const lessonReducer = (state = initialState, action) => {
     switch (action.type) {
         case "FIND_LESSONS":
-            return{
+            return {
                 ...state,
                 lessons: action.lessons
             }
