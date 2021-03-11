@@ -1,8 +1,8 @@
 import React from 'react'
 import CourseTable from "../course-table/course-table";
 import CourseGrid from "../course-grid/course-grid";
-import {Route, useParams} from "react-router-dom";
-import courseService, {findAllCourses, deleteCourse} from "../../services/course-service";
+import { Route, useParams } from "react-router-dom";
+import courseService, { findAllCourses, deleteCourse } from "../../services/course-service";
 import CourseManagerNavbar from "./course-manager-navbar";
 
 class CourseManager extends React.Component {
@@ -19,9 +19,8 @@ class CourseManager extends React.Component {
     }
 
     componentDidMount = () => {
-        courseService.findAllCourses().then(courses => this.setState({courses}))
+        courseService.findAllCourses().then(courses => this.setState({ courses }))
     }
-
 
     addCourse = () => {
         const newCourse = this.state.tempCourse
@@ -36,17 +35,16 @@ class CourseManager extends React.Component {
             })
         ))
 
-        //clears course add input box
-        this.setState({tempCourse: {title: ""}})
-    }   
+        this.setState({ tempCourse: { title: "" } })
+    }
 
     deleteCourse = (courseToDelete) => {
 
         deleteCourse(courseToDelete._id).then(status => {
             this.setState((prevState) => ({
                 ...prevState,
-                courses:prevState.courses
-                    .filter(course => course !==courseToDelete)
+                courses: prevState.courses
+                    .filter(course => course !== courseToDelete)
             }))
         })
     }
@@ -55,7 +53,6 @@ class CourseManager extends React.Component {
         const selected = this.state.courses
             .filter(course => course === courseToEdit)
     }
-
 
     updateCourse = (course) => {
         courseService.updateCourse(course._id, course)
@@ -68,26 +65,26 @@ class CourseManager extends React.Component {
 
     deleteAllCourses = () => {
         this.state.courses.map((course, idx) => {
-            
+
             this.deleteCourse(course)
-                console.log(course._id, "deleted")
+            console.log(course._id, "deleted all the courses")
         })
     }
 
     onCourseChange = (event) => {
         this.setState({
-          tempCourse: {
-            owner: "Unknown",
-            lastModified: "Never",
-            title: event.target.value,
-          }
+            tempCourse: {
+                owner: "Unknown",
+                lastModified: "Never",
+                title: event.target.value,
+            }
         })
     }
 
 
 
     render() {
-        return(
+        return (
             <div>
                 <h1>Course Manager</h1>
                 <h2></h2>
@@ -99,7 +96,7 @@ class CourseManager extends React.Component {
                     <CourseTable
                         updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
-                        courses={this.state.courses}/>
+                        courses={this.state.courses} />
                 </Route>
                 <Route path="/courses/grid" exact={true}>
                     <CourseManagerNavbar
@@ -112,7 +109,7 @@ class CourseManager extends React.Component {
                         deleteCourse={this.deleteCourse}
                     />
                 </Route>
-            <br/>
+                <br />
             </div>
         )
     }

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import EditableItem from "../editable-item";
 import { useParams } from "react-router-dom";
 import TopicService from "../../services/topic-service"
 
 const TopicPills = (
     {
-        topics=[],
+        topics = [],
         createTopic,
         updateTopic,
         findTopicsForLesson,
@@ -14,14 +14,14 @@ const TopicPills = (
         selectTopic,
         selected
     }) => {
-    const {layout, courseId, moduleId, lessonId, topicId} = useParams()
+    const { layout, courseId, moduleId, lessonId, topicId } = useParams()
 
     useEffect(() => {
         findTopicsForLesson(lessonId)
     }, [lessonId])
 
     return (
-        (lessonId !== "undefined" && typeof lessonId  !== "undefined") &&
+        (lessonId !== "undefined" && typeof lessonId !== "undefined") &&
         <div className="wbdv-editor-nav wbdv-editor-topics">
             <ul className="nav nav-pills">
                 {
@@ -30,9 +30,9 @@ const TopicPills = (
                             className="nav-link">
                             <EditableItem
                                 to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
+                                deleteItem={deleteTopic}
                                 updateItem={updateTopic}
                                 item={topic}
-                                deleteItem={deleteTopic}
                                 selectItem={selectTopic}
                                 selected={selected}
                                 isActive={topic._id === topicId ? "active" : ""}
@@ -41,25 +41,21 @@ const TopicPills = (
                     )
                 }
                 <button onClick={() => createTopic(lessonId)} className="btn wbdv-grey-color"
-                        type="submit">
+                    type="submit">
                     <i className="btn btn-primary fas fa-plus"></i>
                 </button>
             </ul>
-
-
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        topics: state.topicReducer.topics
-    }
+const stpm = (state) => {
+    return ({ topics: state.topicReducer.topics })
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const dtpm = (dispatch) => ({
     createTopic: (lessonId) => {
-        TopicService.createTopic(lessonId, {title: "New Topic"})
+        TopicService.createTopic(lessonId, { title: "New Topic" })
             .then(theActualTopic => dispatch({
                 type: "CREATE_TOPIC",
                 topic: theActualTopic
@@ -91,5 +87,4 @@ const mapDispatchToProps = (dispatch) => ({
         })
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)
-(TopicPills)
+export default connect(stpm, dtpm)(TopicPills)

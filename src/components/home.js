@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default () =>
     <>
-        <h1>Home</h1>
+        <h1>HOME PAGE</h1>
         <div className="list-group">
             <Link to="/courses/table" className="list-group-item">
                 Courses Table
@@ -11,8 +11,5 @@ export default () =>
             <Link to="/courses/grid" className="list-group-item">
                 Courses Grid
             </Link>
-{/*             {<Link to="/editor" className="list-group-item">}
-            {    Course Editor}
-            {</Link>} */}
         </div>
     </>

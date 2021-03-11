@@ -1,31 +1,31 @@
-import React, {useEffect} from 'react'
-import {connect} from "react-redux";
+import React, { useEffect } from 'react'
+import { connect } from "react-redux";
 import EditableItem from "../editable-item";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import lessonService from '../../services/lesson-service'
 
 const LessonTabs = (
     {
-        lessons=[],
+        lessons = [],
         findLessonsForModule,
         createLessonForModule,
         updateLesson,
         deleteLesson
     }) => {
-    const {layout, courseId, moduleId, lessonId} = useParams();
+    const { layout, courseId, moduleId, lessonId } = useParams();
 
     useEffect(() => {
-        if(moduleId !== "undefined" && typeof moduleId  !== "undefined"){
+        if (moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
         }
     }, [moduleId])
 
-    return(<div>
+    return (<div>
         <h2>Lesson Tabs</h2>
         <ul className="nav nav-pills wbdv-editor-nav-pills lesson-tabs-editable-item">
             {
                 lessons.map((lesson) =>
-                    <li className = "nav-item">
+                    <li className="nav-item">
                         <EditableItem
                             to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                             item={lesson}
@@ -36,28 +36,25 @@ const LessonTabs = (
                     </li>
                 )
             }
-            <li onClick={() => createLessonForModule(moduleId)} className="ml-2 btn btn-primary fa fa-plus" style={{float:"right"}}/>
+            <li onClick={() => createLessonForModule(moduleId)} className="ml-2 btn btn-primary fa fa-plus" style={{ float: "right" }} />
         </ul>
-    </div>)}
+    </div>)
+}
 
 const stpm = (state) => ({
     lessons: state.lessonReducer.lessons
 })
 const dtpm = (dispatch) => ({
     findLessonsForModule: (moduleId) => {
-
-        console.log("load lessons for module")
-        console.log(moduleId)
         lessonService.findLessonsForModule(moduleId).then(lessons => dispatch({
-            type:"FIND_LESSONS",
+            type: "FIND_LESSONS",
             lessons
         }))
     },
     createLessonForModule: (moduleId) => {
-        console.log("create lesson for module")
-        lessonService.createLessonForModule(moduleId, {title:"New Lesson"})
+        lessonService.createLessonForModule(moduleId, { title: "New Lesson" })
             .then(lesson => dispatch({
-                type:"CREATE_LESSON",
+                type: "CREATE_LESSON",
                 lesson
             }))
     },
@@ -71,7 +68,6 @@ const dtpm = (dispatch) => ({
         lessonService.deleteLesson(lessonToDelete._id).then(
             (status) => dispatch({ type: 'DELETE_LESSON', deleteItem: lessonToDelete })
         )
-
     },
 })
 

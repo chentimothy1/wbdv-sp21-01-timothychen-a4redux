@@ -24,10 +24,10 @@ const CourseGrid = ({ courses, updateCourse, deleteCourse }) => {
                 {
                     courses.map((course, idx) =>
                         <CourseCard
-                            deleteCourse={deleteCourse}
-                            updateCourse={updateCourse}
                             key={course._id}
                             course={course}
+                            updateCourse={updateCourse}
+                            deleteCourse={deleteCourse}
                             title={course.title}
                             owner={course.owner}
                             lastModified={course.lastModified} />
