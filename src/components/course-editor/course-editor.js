@@ -1,10 +1,10 @@
 import React from 'react'
 import './course-editor.css';
-import {Link, useParams, useHistory} from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import moduleReducer from "../../reducers/module-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
-import {combineReducers, createStore} from "redux";
-import {connect, Provider} from "react-redux";
+import { combineReducers, createStore } from "redux";
+import { connect, Provider } from "react-redux";
 import ModuleList from "./module-list";
 import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
@@ -21,25 +21,24 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-
-const CourseEditor = ({history, course, findCourseById}) => {
-    const {layout, courseId, moduleId} = useParams();
-    let mdiv;
-    if(moduleId !== "undefined" && typeof moduleId  !== "undefined")
-        mdiv=<div>
-            <LessonTabs/>
-            <TopicPills/>
+const CourseEditor = ({ history, course, findCourseById }) => {
+    const { layout, courseId, moduleId } = useParams();
+    let moddiv;
+    if (moduleId !== "undefined" && typeof moduleId !== "undefined")
+        moddiv = <div>
+            <LessonTabs />
+            <TopicPills />
         </div>
-    return(
+    return (
         <Provider store={store}>
-            <CourseEditorNavbar history={history}/>
+            <CourseEditorNavbar history={history} />
             <div className="row">
                 <div className="col-3">
-                    <ModuleList/>
+                    <ModuleList />
                 </div>
 
                 <div className="col-9">
-                    {mdiv}
+                    {moddiv}
                 </div>
             </div>
         </Provider>
