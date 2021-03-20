@@ -11,12 +11,15 @@ import TopicPills from "./topic-pills";
 import topicReducer from "../../reducers/topic-reducer";
 import courseReducer from "../../reducers/course-reducer";
 import CourseEditorNavbar from "./course-editor-navbar";
+import WidgetList from "./widgets/widget-list";
+import widgetReducer from "../../reducers/widget-reducer";
 
 const reducer = combineReducers({
     moduleReducer,
     lessonReducer,
     topicReducer,
-    courseReducer
+    courseReducer,
+    widgetReducer
 })
 
 const store = createStore(reducer)
@@ -28,6 +31,7 @@ const CourseEditor = ({ history, course, findCourseById }) => {
         moddiv = <div>
             <LessonTabs />
             <TopicPills />
+            <WidgetList />
         </div>
     return (
         <Provider store={store}>

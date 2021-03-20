@@ -29,10 +29,7 @@ export const deleteTopic = (topicId) =>
     }).then(response => response.json());
 
 const api = {
-    createTopic,
-    findTopicsForLesson,
-    deleteTopic,
-    updateTopic
+    createTopic, findTopicsForLesson, deleteTopic, updateTopic
 }
 
 export default api
