@@ -1,42 +1,49 @@
 const initialState = {
-    widgets: [1, 2, 3]
-}
+    widgets: [
+      { title: 'Test Topic 1', _id: '123', type: "1", text: "testing" },
+      { title: 'Test Topic 2', _id: '987', type: "2", text: "testing text" },
+      { title: 'Test Topic 3', _id: '456', type: "3", text: "this is texting text" },
+    ]
+  }
 
 const widgetReducer = (state=initialState, action) => {
     switch (action.type) {
-        case 'CREATE_WIDGET':
+        case "CREATE_WIDGET":
             return {
+                ...state,
                 widgets: [
                     ...state.widgets,
-                    action.widget
+                    action.widgets
                 ]
             }
-        case 'DELETE_WIDGET':
+        case "FIND_WIDGETS_FOR_TOPIC":
             return {
-                widgets: state.widgets.filter(widget => {
-                    return widget._id !== action.widgetToDelete._id;
-                })
+                ...state,
+                widgets: action.widgets
             }
-        case 'UPDATE_WIDGET':
+        case "UPDATE_WIDGET":
             return {
-                widgets: state.widgets.map(widget => {
-                    if(widget._id === action.widget._id) {
-                        return action.widget
+                ...state,
+                widgets: state.widgets.map(w => {
+                    if (w.id === action.updatedWidget.id) {
+                        return action.updatedWidget
                     } else {
-                        return widget
+                        return w
                     }
                 })
             }
-        case 'FIND_WIDGETS_FOR_TOPIC':
+        case "DELETE_WIDGET":
             return {
                 ...state,
-                widgets: action.widgets
+                widgets: state.widgets.filter(w => {
+                    if (w.id !== action.deletedWidget.id) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
             }
-        case 'FIND_ALL_WIDGETS':
-            return {
-                ...state,
-                widgets: action.widgets
-            }
+
         default:
             return state
     }
