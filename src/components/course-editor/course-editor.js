@@ -1,16 +1,21 @@
 import React from 'react'
 import './course-editor.css';
 import { Link, useParams, useHistory } from "react-router-dom";
-import moduleReducer from "../../reducers/module-reducer";
-import lessonReducer from "../../reducers/lesson-reducer";
 import { combineReducers, createStore } from "redux";
 import { connect, Provider } from "react-redux";
+
 import ModuleList from "./module-list";
+import moduleReducer from "../../reducers/module-reducer";
+
 import LessonTabs from "./lesson-tabs";
+import lessonReducer from "../../reducers/lesson-reducer";
+
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducers/topic-reducer";
+
 import courseReducer from "../../reducers/course-reducer";
 import CourseEditorNavbar from "./course-editor-navbar";
+
 import WidgetList from "./widgets/widget-list";
 import widgetReducer from "../../reducers/widget-reducer";
 
@@ -31,6 +36,7 @@ const CourseEditor = ({ history, course, findCourseById }) => {
         moddiv = <div>
             <LessonTabs />
             <TopicPills />
+            <br/>
             <WidgetList />
         </div>
     return (
