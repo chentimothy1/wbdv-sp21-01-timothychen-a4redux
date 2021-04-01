@@ -21,6 +21,8 @@ const ParagraphWidget = (
                         value={editingWidget.type}>
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
+                        <option value={"LIST"}>List</option>
+                        <option value={"IMAGE"}>Image</option>
                     </select>
 
                     {/* inserting text here */}
