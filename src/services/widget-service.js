@@ -1,6 +1,6 @@
-// const SERVER_URL = "http://localhost:8080/api"
+const SERVER_URL = "http://localhost:8080/api"
 
-const SERVER_URL = "https://wbdv-sp21-timothychen-a1.herokuapp.com/api"
+// const SERVER_URL = "https://wbdv-sp21-timothychen-a1.herokuapp.com/api"
 
 export const createWidget = (topicId, widget) =>
     fetch(`${SERVER_URL}/topics/${topicId}/widgets`, {

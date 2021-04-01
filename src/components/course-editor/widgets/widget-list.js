@@ -6,7 +6,11 @@ import { connect } from 'react-redux'
 import { useParams } from "react-router-dom";
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+
+
 import widgetService from "../../../services/widget-service"
+import ListWidget from "./list-widget";
+import ImageWidget from "./image-widget";
 
 const WidgetList = (
     {
@@ -79,6 +83,19 @@ const WidgetList = (
                                         editing={editingWidget.id === w.id}
                                         editingWidget={editingWidget}
                                         setEditingWidget={setEditingWidget} />}
+                                {w.type === "LIST" &&
+                                    <ListWidget
+                                        widget={w}
+                                        editing={editingWidget.id === w.id}
+                                        editingWidget={editingWidget}
+                                        setEditingWidget={setEditingWidget} />}
+                                {w.type === "IMAGE" &&
+                                    <ImageWidget
+                                        widget={w}
+                                        editing={editingWidget.id === w.id}
+                                        editingWidget={editingWidget}
+                                        setEditingWidget={setEditingWidget} />}
+
                             </div>
                         </li>
                     )
