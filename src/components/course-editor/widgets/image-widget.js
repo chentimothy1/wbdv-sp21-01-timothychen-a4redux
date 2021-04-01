@@ -14,6 +14,19 @@ const ImageWidget = (
                 editing &&
                 <div style={{ "width": "85%" }}>
 
+                    <select
+                        //widget type selector
+                        //add more widgets here later
+                        className="m-2 form-control"
+                        onChange={(e) => setEditingWidget({ ...editingWidget, type: e.target.value })}
+                        value={editingWidget.type}>
+                        <option value={"HEADING"}>Heading</option>
+                        <option value={"PARAGRAPH"}>Paragraph</option>
+                        <option value={"LIST"}>List</option>
+                        <option value={"IMAGE"}>Image</option>
+                    </select>
+
+
                     {/* URL */}
                     <h2 className="m-2">Image URL:</h2>
                     <input
