@@ -1,8 +1,8 @@
-// const TOPIC_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
-// const LESSON_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/topics"
+const TOPIC_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
+const LESSON_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/topics"
 
-const TOPIC_URL = "http://localhost:8080/api/timca4/topics"
-const LESSON_URL = "http://localhost:8080/api/timca4/lessons"
+// const TOPIC_URL = "http://localhost:8080/api/timca4/topics"
+// const LESSON_URL = "http://localhost:8080/api/timca4/lessons"
 
 export const createTopic = (lessonId, topic) =>
     fetch(`${LESSON_URL}/${lessonId}/topics`, {

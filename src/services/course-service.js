@@ -1,6 +1,6 @@
-// const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
+const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
 
-const COURSES_URL = "http://localhost:8080/api/timca4/courses"
+// const COURSES_URL = "http://localhost:8080/api/timca4/courses"
 
 export const createCourse = (course) =>
     fetch(COURSES_URL, {

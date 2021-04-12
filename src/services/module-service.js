@@ -1,8 +1,8 @@
-// const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
-// const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/modules"
+const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/courses"
+const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/timca4/modules"
 
-const COURSES_URL = "http://localhost:8080/api/timca4/courses"
-const MODULES_URL = "http://localhost:8080/api/timca4/modules"
+// const COURSES_URL = "http://localhost:8080/api/timca4/courses"
+// const MODULES_URL = "http://localhost:8080/api/timca4/modules"
 
 export const createModule = (courseId, module) =>
     fetch(`${COURSES_URL}/${courseId}/modules`, {
