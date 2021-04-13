@@ -45,6 +45,7 @@ const CourseRow = (
             <td className="d-none d-lg-table-cell">
                 {lastModified}
             </td>
+            {/* TODO: update quiz location on course manager*/}
             <td>
                 <Link to={`/courses/${course._id}/quizzes`}>
                     Quizzes

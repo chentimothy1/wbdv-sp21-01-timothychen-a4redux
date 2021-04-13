@@ -4,6 +4,8 @@ import CourseEditor from "./components/course-editor/course-editor";
 import Home from "./components/home";
 import { BrowserRouter, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Quizzes from "./components/quizzes/quizzes";
+import Quiz from "./components/quizzes/quiz";
 
 function App() {
 
@@ -23,6 +25,9 @@ function App() {
                 ]}
                        exact={true}
                        render={(props) => <CourseEditor {...props}/>}/>
+    
+                <Route path="/courses/:courseId/quizzes" component={Quizzes} exact={true}/>
+                <Route path="/courses/:courseId/quizzes/:quizId" component={Quiz} exact={true}/>
 
             </div>
         </BrowserRouter>
